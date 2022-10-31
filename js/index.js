@@ -1,13 +1,27 @@
 
 
-let hangmanNumber = 0;
-hangmanNumber = hangmanNumber++
+
 let bodyArr;
 
 
 let guessLetter = 'b';
 let finalWord = 'a'
 
+
+
+function showBody(let, ord){
+  let youDead = arrangeBody();
+  let hangmanNumber = 0;
+  hangmanNumber = hangmanNumber++;
+  if (let != ord){
+    youDead[hangmanNumber]
+    
+   }
+  else if (let == ord){
+    console.log(guessLetter);
+  } 
+  }  
+ 
 function arrangeBody(){
   
  bodyArr = [
@@ -18,16 +32,5 @@ function arrangeBody(){
  document.querySelector('figure').classList.add('legs')
 ]
 }
-
-function showBody(let, ord){
-  if (let != ord){
-    arrangeBody()
-    
-   }
-  if (let == ord){
-    console.log(guessLetter);
-  } }  
- 
-
 
 showBody(guessLetter, finalWord)
