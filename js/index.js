@@ -1,7 +1,10 @@
 
 
 
-let bodyArr = [
+
+ 
+function showBodyParts () {
+ let bodyArr = [
  document.querySelector('figure').classList.add('scaffold'),
  document.querySelector('figure').classList.add('head'),
  document.querySelector('figure').classList.add('body'),
@@ -9,19 +12,24 @@ let bodyArr = [
  document.querySelector('figure').classList.add('legs')
 ];
   for (let i = 0; i < bodyArr.length; i++) {
-      const bodyParts = bodyArr[i];
-     console.log(bodyParts); 
-  };
- 
-
-
-function showBodyParts () {
-
-
+     // const bodyParts = bodyArr[i];
+     console.log(bodyArr[i])
+  };   
+  
 
 };
 
-showBodyParts()
+
+window.addEventListener('keydown' , (event) =>{
+    if (event.code  === "Arrowleft"){
+        showBodyParts(bodyArr[i])
+    }
+
+});
+
+
+
+
 
 
 
