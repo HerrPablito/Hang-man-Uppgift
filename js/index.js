@@ -8,6 +8,3 @@
 
  */
 
- Hej sime
-
- hej pablo
