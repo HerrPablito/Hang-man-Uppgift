@@ -4,7 +4,8 @@
 // let bodyArr;
  let guessLetter = 'a';
  let finalWord = 'b'
- let numberOfGuesses = 5;  
+ let numberOfWrongGuesses = 5;
+   
 
 
 // function showBody(hej, ord){
@@ -72,12 +73,7 @@ function test (guessLetter, finalWord){
 }
 test();
 
-<<<<<<< HEAD
-=======
-showBody(guessLetter, finalWord)
-
-
-/**
++/**
  function generateWord() {
     let wordArr = ['summer', 'winter', 'spring', 'fall'];
     const randomPosition = Math.floor(Math.random() * wordArr.length);
@@ -111,4 +107,3 @@ function start() {
 
 start();
  */
->>>>>>> cb8f8303e9fe3c7e607b889e91f3b080ba73ef07
