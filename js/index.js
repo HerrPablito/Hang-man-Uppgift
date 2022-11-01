@@ -2,12 +2,13 @@
 
 
 
- let guessLetter = 'h';
- let finalWord = 'h';
- let numberOfWrongGuesses = 3;
+ let guessLetter = 'a';
+ let finalWord = 'a';
+ let numberOfWrongGuesses = 1;
 
 
-function addBodyParts (guessLetter , finalWord){
+
+function addBodyParts (guessLetter, finalWord){
   if (guessLetter =! finalWord){
     //numberOfWrongGuesses = numberOfWrongGuesses++
     if (numberOfWrongGuesses == 1)
@@ -42,7 +43,7 @@ function addBodyParts (guessLetter , finalWord){
       // Här ska vi använda onkey-event för att starta om typ. 
     }
   }
-  else if (guessLetter == finalWord){
+  else if (guessLetter === finalWord){
     console.log(guessLetter)
     
   }
