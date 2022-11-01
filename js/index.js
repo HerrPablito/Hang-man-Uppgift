@@ -1,63 +1,36 @@
 
 
 
-// let bodyArr;
- let guessLetter = 'a';
- let finalWord = 'b'
- let numberOfWrongGuesses = 5;
-   
+
+ let guessLetter = 'h';
+ let finalWord = 'h';
+ let numberOfWrongGuesses = 3;
 
 
-// function showBody(hej, ord){
-//   let youDead = arrangeBody();
-//   let hangmanNumber = 0;
-//   hangmanNumber = hangmanNumber++;
-
-//   if (hej != ord){
-//     youDead[4]
-//    }
-//   else if (hej == ord){
-//     console.log(hej);
-//   } 
-//   }  
-
-//document.querySelector('figure').classList.add('scaffold');
-//let head = document.querySelector('figure').classList.add('head');
-//let bod = document.querySelector('figure').classList.add('body');
-//let arm = document.querySelector('figure').classList.add('arms');
-//let leg =document.querySelector('figure').classList.add('legs');
-//  bodyArr = [sca, head, bod, arm, leg ]
-//  console.log(bodyArr); 
-// function arrangeBody(){
-// }
-// arrangeBody()
-
-//showBody(guessLetter, finalWord)
-
-function AddBodyParts (guessLetter, finalWord){
+function addBodyParts (guessLetter , finalWord){
   if (guessLetter =! finalWord){
-    numberOfGuesses = numberOfGuesses++
-    if (numberOfGuesses == 1)
+    //numberOfWrongGuesses = numberOfWrongGuesses++
+    if (numberOfWrongGuesses == 1)
     document.querySelector('figure').classList.add('scaffold');
-    else if (numberOfGuesses == 2){
+    else if (numberOfWrongGuesses == 2){
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
     }
 
-    else if (numberOfGuesses == 3){
+    else if (numberOfWrongGuesses == 3){
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
       document.querySelector('figure').classList.add('body');
     }
 
-    else if (numberOfGuesses == 4){
+    else if (numberOfWrongGuesses == 4){
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
       document.querySelector('figure').classList.add('body');
       document.querySelector('figure').classList.add('arms');
     }
 
-    else if (numberOfGuesses == 5){
+    else if (numberOfWrongGuesses == 5){
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
       document.querySelector('figure').classList.add('body');
@@ -67,15 +40,19 @@ function AddBodyParts (guessLetter, finalWord){
       console.log("spela igen?");
       console.log('press any key to restart');
       // Här ska vi använda onkey-event för att starta om typ. 
-      
     }
+  }
+  else if (guessLetter == finalWord){
+    console.log(guessLetter)
+    
+  }
 
-    else {
+  else {
       console.log('du tryckte fel tangent.')
     }
 };
-}
-AddBodyParts();
+
+addBodyParts();
 
 /**
  function generateWord() {
