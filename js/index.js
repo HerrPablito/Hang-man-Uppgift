@@ -1,23 +1,10 @@
 
 
 
-
- let guessLetter = 'a';
- let finalWord = 'bamsa';
- let numberOfWrongGuesses = 3;
+ let guessLetter = prompt("insert letter!");
+ let finalWord = 'Pablo';
+ let numberOfWrongGuesses = 1;
  let pickedWord = 'hej'
-
-generateWord();
-
-function generateWord() {
-    let wordArr = ['summer', 'winter', 'spring', 'fall'];
-    const randomPosition = Math.floor(Math.random() * wordArr.length);
-    pickedWord = wordArr.splice(randomPosition, 1);
-    console.log(pickedWord);
-    pickedWord = finalWord
-    return finalWord;
-}
-
 
 // function checkLetter(word, letter) {
     
@@ -37,26 +24,61 @@ function generateWord() {
 //     showLetter(letterResault);
 // }
 
+
 // start();
+
+
+console.log(guessLetter);
+
+    // let showInsultelement = document.querySelector('.insults');
+
+    // function showInsult (){
+            
+   
+    //         let allInsults = slumpaInsult();
+    //         const randomNR = Math.random() *10;
+    //         const newNumber = Math.floor(randomNR);
+    //         showInsultelement.innerHTML = allInsults[newNumber].insult + '(' + allInsults[newNumber].play + ')'
+    // }
 
 function addBodyParts (guessLetter, finalWord){
 
+    function generateWord() {
+    let wordArr = ['summer', 'winter', 'spring', 'fall'];
+    const randomPosition = Math.floor(Math.random() * wordArr.length);
+    pickedWord = wordArr[randomPosition];
+    finalWord = pickedWord
+    console.log(pickedWord.length);  
+    return finalWord;
+
+ 
+
+}
+generateWord()
+console.log(finalWord, guessLetter);
 
 
+  console.log(guessLetter);
+  if (finalWord.includes(guessLetter) == false){
+    numberOfWrongGuesses = numberOfWrongGuesses++
 
-  if (finalWord.includes(guessLetter) == true){
-    //numberOfWrongGuesses = numberOfWrongGuesses++
-    if (numberOfWrongGuesses == 1)
+    if (numberOfWrongGuesses == 1){
     document.querySelector('figure').classList.add('scaffold');
+    console.log('Du hade fel!');   
+    let showWrongLetterElement = document.querySelector('.wrongNumberOne')
+    showWrongLetterElement.innerHTML = guessLetter;
+  }
     else if (numberOfWrongGuesses == 2){
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
+      console.log('Du hade fel!');
     }
 
     else if (numberOfWrongGuesses == 3){
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
       document.querySelector('figure').classList.add('body');
+      console.log('Du hade fel!');
     }
 
     else if (numberOfWrongGuesses == 4){
@@ -64,6 +86,7 @@ function addBodyParts (guessLetter, finalWord){
       document.querySelector('figure').classList.add('head');
       document.querySelector('figure').classList.add('body');
       document.querySelector('figure').classList.add('arms');
+      console.log('Du hade fel!');
     }
 
     else if (numberOfWrongGuesses == 5){
@@ -78,8 +101,8 @@ function addBodyParts (guessLetter, finalWord){
       // Här ska vi använda onkey-event för att starta om typ. 
     }
   }
-  else if (finalWord.includes(guessLetter) == false){
-    console.log(guessLetter)
+  else if (finalWord.includes(guessLetter) == true){
+    console.log("Du hade rätt: " + guessLetter)
     
   }
 
@@ -89,7 +112,7 @@ function addBodyParts (guessLetter, finalWord){
   }
 
 addBodyParts(guessLetter, finalWord);
-
+console.log(numberOfWrongGuesses);
 
 
 
