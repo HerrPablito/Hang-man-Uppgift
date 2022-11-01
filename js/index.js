@@ -54,14 +54,18 @@ function addBodyParts (guessLetter , finalWord){
 
 addBodyParts();
 
-/**
- function generateWord() {
+
+
+let pickedWord = 'hej'
+
+
+function generateWord() {
     let wordArr = ['summer', 'winter', 'spring', 'fall'];
     const randomPosition = Math.floor(Math.random() * wordArr.length);
-    const pickedWord = wordArr.splice(randomPosition, 1);
+    pickedWord = wordArr.splice(randomPosition, 1);
     console.log(pickedWord);
-
-    return pickedWord;
+    let word = pickedWord
+    return word;
 
 }
 
@@ -70,6 +74,7 @@ generateWord();
 
 
 function checkLetter(word, letter) {
+    
     const getLetter = word.includes(letter);
 
     return getLetter;
@@ -80,11 +85,10 @@ function showLetter(getLetter) {
     console.log(getLetter);
 }
 
-function start() {
-    const letterResault = checkLetter(pickedWord, 'e');
+function start(word) {
+    const letterResault = (word, 'e');
 
     showLetter(letterResault);
 }
 
 start();
- */
