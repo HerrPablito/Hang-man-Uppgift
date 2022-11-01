@@ -3,8 +3,8 @@
 
 
  let guessLetter = 'a';
- let finalWord = 'b';
- let numberOfWrongGuesses = 1;
+ let finalWord = 'bamsa';
+ let numberOfWrongGuesses = 3;
  let pickedWord = 'hej'
 
 generateWord();
@@ -14,41 +14,37 @@ function generateWord() {
     const randomPosition = Math.floor(Math.random() * wordArr.length);
     pickedWord = wordArr.splice(randomPosition, 1);
     console.log(pickedWord);
-    finalWord = pickedWord
+    pickedWord = finalWord
     return finalWord;
 }
 
 
-function checkLetter(word, letter) {
+// function checkLetter(word, letter) {
     
-    const getLetter = word.includes(letter);
+//     const getLetter = word.includes(letter);
 
-    return getLetter;
+//     return getLetter;
 
-}
+// }
 
-function showLetter(getLetter) {
-    console.log(getLetter);
-}
+// function showLetter(getLetter) {
+//     console.log(getLetter);
+// }
 
-function start(word) {
-    const letterResault = (word, 'e');
+// function start(word) {
+//     const letterResault = (word, 'e');
 
-    showLetter(letterResault);
-}
+//     showLetter(letterResault);
+// }
 
-start();
+// start();
 
 function addBodyParts (guessLetter, finalWord){
 
-    if (finalWord.includes(guessLetter)) {
-      return guessLetter;
-      
-      
-    }
 
 
-  if (finalWord.includes(guessLetter)){
+
+  if (finalWord.includes(guessLetter) == true){
     //numberOfWrongGuesses = numberOfWrongGuesses++
     if (numberOfWrongGuesses == 1)
     document.querySelector('figure').classList.add('scaffold');
@@ -82,7 +78,7 @@ function addBodyParts (guessLetter, finalWord){
       // Här ska vi använda onkey-event för att starta om typ. 
     }
   }
-  else if (guessLetter === finalWord){
+  else if (finalWord.includes(guessLetter) == false){
     console.log(guessLetter)
     
   }
@@ -90,9 +86,9 @@ function addBodyParts (guessLetter, finalWord){
   else {
       console.log('du tryckte fel tangent.')
     }
-};
+  }
 
-addBodyParts();
+addBodyParts(guessLetter, finalWord);
 
 
 
