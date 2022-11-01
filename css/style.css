@@ -208,17 +208,27 @@ body {
 
 .showLetters{
     width: 70vw;
-    height: 100px;
+    height: 150px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .wrongLetter{
     width: 100;
     height: 50%;
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
+    
 }
 .rightLetter{
     height: 50%;
     width: 100%;
 }
+.wrongNumberOne, .wrongNumberTwo, .wrongNumberThree, .wrongNumberFour, .wrongNumberFive{
+    width: 20%;
+    border: 5px solid rgb(195, 82, 82) ;
+    padding: 0;
+    margin: 0 .5rem;
+    font-size: 3rem;
+    text-align: center;
+} 
