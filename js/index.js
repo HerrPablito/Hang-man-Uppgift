@@ -34,7 +34,7 @@
 
 //showBody(guessLetter, finalWord)
 
-function test (guessLetter, finalWord){
+function AddBodyParts (guessLetter, finalWord){
   if (guessLetter =! finalWord){
     numberOfGuesses = numberOfGuesses++
     if (numberOfGuesses == 1)
@@ -64,16 +64,20 @@ function test (guessLetter, finalWord){
       document.querySelector('figure').classList.add('arms');
       document.querySelector('figure').classList.add('legs');
       console.log("du förlorade");
+      console.log("spela igen?");
+      console.log('press any key to restart');
+      // Här ska vi använda onkey-event för att starta om typ. 
+      
     }
 
     else {
-     console.log("spela igen?");
+      console.log('du tryckte fel tangent.')
     }
 };
 }
-test();
+AddBodyParts();
 
-+/**
+/**
  function generateWord() {
     let wordArr = ['summer', 'winter', 'spring', 'fall'];
     const randomPosition = Math.floor(Math.random() * wordArr.length);
