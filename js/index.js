@@ -3,7 +3,7 @@
 
  let guessLetter = prompt("insert letter!");
  let finalWord = 'Pablo';
- let numberOfWrongGuesses = 1;
+ let numberOfWrongGuesses = 3;
  let pickedWord = 'hej'
 
 // function checkLetter(word, letter) {
@@ -29,17 +29,6 @@
 
 
 console.log(guessLetter);
-
-    // let showInsultelement = document.querySelector('.insults');
-
-    // function showInsult (){
-            
-   
-    //         let allInsults = slumpaInsult();
-    //         const randomNR = Math.random() *10;
-    //         const newNumber = Math.floor(randomNR);
-    //         showInsultelement.innerHTML = allInsults[newNumber].insult + '(' + allInsults[newNumber].play + ')'
-    // }
 
 function addBodyParts (guessLetter, finalWord){
 
@@ -72,6 +61,8 @@ console.log(finalWord, guessLetter);
       document.querySelector('figure').classList.add('scaffold');
       document.querySelector('figure').classList.add('head');
       console.log('Du hade fel!');
+      let showWrongLetterElement = document.querySelector('.wrongNumberTwo')
+      showWrongLetterElement.innerHTML = guessLetter;
     }
 
     else if (numberOfWrongGuesses == 3){
@@ -79,6 +70,8 @@ console.log(finalWord, guessLetter);
       document.querySelector('figure').classList.add('head');
       document.querySelector('figure').classList.add('body');
       console.log('Du hade fel!');
+      let showWrongLetterElement = document.querySelector('.wrongNumberThree')
+      showWrongLetterElement.innerHTML = guessLetter;
     }
 
     else if (numberOfWrongGuesses == 4){
@@ -87,6 +80,8 @@ console.log(finalWord, guessLetter);
       document.querySelector('figure').classList.add('body');
       document.querySelector('figure').classList.add('arms');
       console.log('Du hade fel!');
+      let showWrongLetterElement = document.querySelector('.wrongNumberFour')
+      showWrongLetterElement.innerHTML = guessLetter;
     }
 
     else if (numberOfWrongGuesses == 5){
@@ -95,6 +90,8 @@ console.log(finalWord, guessLetter);
       document.querySelector('figure').classList.add('body');
       document.querySelector('figure').classList.add('arms');
       document.querySelector('figure').classList.add('legs');
+      let showWrongLetterElement = document.querySelector('.wrongNumberFive')
+      showWrongLetterElement.innerHTML = guessLetter;
       console.log("du förlorade");
       console.log("spela igen?");
       console.log('press any key to restart');
