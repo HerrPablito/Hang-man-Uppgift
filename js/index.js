@@ -3,13 +3,52 @@
 
 
  let guessLetter = 'a';
- let finalWord = 'a';
+ let finalWord = 'b';
  let numberOfWrongGuesses = 1;
+ let pickedWord = 'hej'
+
+generateWord();
+
+function generateWord() {
+    let wordArr = ['summer', 'winter', 'spring', 'fall'];
+    const randomPosition = Math.floor(Math.random() * wordArr.length);
+    pickedWord = wordArr.splice(randomPosition, 1);
+    console.log(pickedWord);
+    finalWord = pickedWord
+    return finalWord;
+}
 
 
+function checkLetter(word, letter) {
+    
+    const getLetter = word.includes(letter);
+
+    return getLetter;
+
+}
+
+function showLetter(getLetter) {
+    console.log(getLetter);
+}
+
+function start(word) {
+    const letterResault = (word, 'e');
+
+    showLetter(letterResault);
+}
+
+start();
 
 function addBodyParts (guessLetter, finalWord){
-  if (guessLetter =! finalWord){
+
+    if (finalWord.includes(guessLetter)) {
+      return guessLetter;
+      
+      
+    }
+
+
+  if (finalWord.includes(guessLetter)){
     //numberOfWrongGuesses = numberOfWrongGuesses++
     if (numberOfWrongGuesses == 1)
     document.querySelector('figure').classList.add('scaffold');
@@ -57,39 +96,6 @@ addBodyParts();
 
 
 
-let pickedWord = 'hej'
-
-
-function generateWord() {
-    let wordArr = ['summer', 'winter', 'spring', 'fall'];
-    const randomPosition = Math.floor(Math.random() * wordArr.length);
-    pickedWord = wordArr.splice(randomPosition, 1);
-    console.log(pickedWord);
-    let word = pickedWord
-    return word;
-
-}
-
-generateWord();
 
 
 
-function checkLetter(word, letter) {
-    
-    const getLetter = word.includes(letter);
-
-    return getLetter;
-
-}
-
-function showLetter(getLetter) {
-    console.log(getLetter);
-}
-
-function start(word) {
-    const letterResault = (word, 'e');
-
-    showLetter(letterResault);
-}
-
-start();
