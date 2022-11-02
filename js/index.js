@@ -5,6 +5,14 @@ let finalWord = 'Pablo';
 let numberOfWrongGuesses = 3;
 let pickedWord = 'hej'
 
+//Tar emot data (Tildes work!)
+let inputField = document.querySelector('.insertLetter');
+inputField.addEventListener('keydown',(event)=> {
+if(event.key === 'Enter') {
+  //Funktion som gör jobbet, eller referera till en  
+  (inputHTML.value)
+}
+
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
 function addBodyParts (guessLetter, finalWord){
