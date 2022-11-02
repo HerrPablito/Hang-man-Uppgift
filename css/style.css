@@ -214,7 +214,7 @@ body {
     justify-content: space-between;
 }
 .wrongLetter{
-    width: 100%;
+    width: 100;
     height: 50%;
     display: flex;
     flex-direction:row;
@@ -223,11 +223,6 @@ body {
 .rightLetter{
     height: 50%;
     width: 100%;
-    font-size: 3rem;
-    margin: 0;
-    text-align: center;
-    border: 5px solid rgb(195, 82, 82) ;
-    margin: .5rem .5rem .5rem .5rem;
 }
 .wrongNumberOne, .wrongNumberTwo, .wrongNumberThree, .wrongNumberFour, .wrongNumberFive{
     width: 20%;
@@ -236,9 +231,4 @@ body {
     margin: 0 .5rem;
     font-size: 3rem;
     text-align: center;
-    background-image: url(/skull.webp);
-    background-repeat: 0;
-    background-size:cover;
-    background-position: center;
-    color: red;
 } 

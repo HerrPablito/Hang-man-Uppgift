@@ -1,13 +1,9 @@
 
 //Här Deklarerar vi variablerna utanför funtionerna så de blir globala. 
-let guessLetter = ("r");
-let finalWord = '';
+let guessLetter = prompt("insert letter!");
+let finalWord = 'Pablo';
 let numberOfWrongGuesses = 3;
-let pickedWord = '';
-let wordStatus = null;
-let wrongLetters = [];
-let correctLetters = [];
-let showRightLetterElement = document.querySelector('.rightLetter');
+let pickedWord = 'hej'
 
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
@@ -34,9 +30,9 @@ function addBodyParts (guessLetter, finalWord){
         if (numberOfWrongGuesses == 1){
           document.querySelector('figure').classList.add('scaffold');
           console.log('Du hade fel!');   
-          let showWrongLetterElement = document.querySelector('.wrongNumberOne.')
+          let showWrongLetterElement = document.querySelector('.wrongNumberOne')
           showWrongLetterElement.innerHTML = guessLetter;
-        }
+      }
         else if (numberOfWrongGuesses == 2){
           document.querySelector('figure').classList.add('scaffold');
           document.querySelector('figure').classList.add('head');
@@ -70,7 +66,7 @@ function addBodyParts (guessLetter, finalWord){
           document.querySelector('figure').classList.add('body');
           document.querySelector('figure').classList.add('arms');
           document.querySelector('figure').classList.add('legs');
-          showWrongLetterElement = document.querySelector('.wrongNumberFive')
+          let showWrongLetterElement = document.querySelector('.wrongNumberFive')
           showWrongLetterElement.innerHTML = guessLetter;
           console.log("du förlorade");
           console.log("spela igen?");
@@ -81,32 +77,13 @@ function addBodyParts (guessLetter, finalWord){
     //Om Bokstaven som gissats finns i order, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
       console.log("Du hade rätt: " + guessLetter)
-      //Här hamnar de rätta bokstäverna på rätt plats
-      //let showRightLetterElement = document.querySelector('.rightLetter')
-      //showRightLetterElement.innerHTML = guessLetter;
-      displayWord()
+      
     }
 
   else {
       console.log('du tryckte fel tangent.')
     }
   }
-    
-
-
-function displayWord (){
-      showRightLetterElement.innerHTML = `${finalWord.split('').map(guessLetter => `
-      <span class="letter"> 
-          ${correctLetters.includes(guessLetter) ? letter : ''} 
-      </span>
-      `).join('')} `;
-      const innerWord = showRightLetterElement.innerText.replace(/\n/g, '');
-      console.log(innerWord);
-      if (innerWord === finalWord) {
-        console.log('You won!');
-      }
-    }
-
 //Här startar vi funktionen
 addBodyParts(guessLetter, finalWord);
 
