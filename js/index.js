@@ -17,9 +17,12 @@ function addBodyParts (guessLetter, finalWord){
     return finalWord;
 }
 
-let inputField = document.querySelector(#insertLetter);
-inputField.addEventListener(keydown,()=> {
-
+let inputField = document.querySelector('.insertLetter');
+inputField.addEventListener('keydown',(event)=> {
+if(event.key === 'Enter') {
+  //Funktion som gör jobbet, eller referera till en  
+  (inputHTML.value)
+}
 } 
 )
   //Här startar ovanstående funktion

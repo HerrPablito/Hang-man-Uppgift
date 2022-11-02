@@ -232,3 +232,11 @@ body {
     font-size: 3rem;
     text-align: center;
 } 
+
+.insertLetter {
+    width: 10em;
+    height: 4em;
+    margin-left: 1em;
+    margin-bottom: 2em;
+    
+}
