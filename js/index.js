@@ -1,32 +1,14 @@
 
 
 
- let guessLetter = prompt("insert letter!");
- let finalWord = 'Pablo';
- let numberOfWrongGuesses = 3;
- let pickedWord = 'hej'
-
-// function checkLetter(word, letter) {
-    
-//     const getLetter = word.includes(letter);
-
-//     return getLetter;
-
-// }
-
-// function showLetter(getLetter) {
-//     console.log(getLetter);
-// }
-
-// function start(word) {
-//     const letterResault = (word, 'e');
-
-//     showLetter(letterResault);
-// }
 
 
-// start();
 
+
+let guessLetter = prompt("insert letter!");
+let finalWord = 'Pablo';
+let numberOfWrongGuesses = 3;
+let pickedWord = 'hej'
 
 console.log(guessLetter);
 
