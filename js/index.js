@@ -16,6 +16,12 @@ function addBodyParts (guessLetter, finalWord){
     finalWord = wordArr[randomPosition]; 
     return finalWord;
 }
+
+let inputField = document.querySelector(#insertLetter);
+inputField.addEventListener(keydown,()=> {
+
+} 
+)
   //Här startar ovanstående funktion
   generateWord()
 
