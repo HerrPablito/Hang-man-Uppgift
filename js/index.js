@@ -6,31 +6,48 @@ let numberOfWrongGuesses = 3;
 let pickedWord = 'hej'
 let wrongLetters = [];
 let correctLetters = [];
-let showRightLetterElement = document.querySelector('.rightLetter');
+let showRightLetterElement = document.querySelector('.correctLetter');
 
 
 //Tar emot data (Tildes work!)
 let guessLetter = document.querySelector('.insertLetter');
-guessLetter.addEventListener ('keydown', (event)=> {
+guessLetter.addEventListener ('keyup', (event)=> {
 if(event.key === 'Enter') {
   //Funktion som gör jobbet, eller referera till en  
   (inputHTML.value)
 }
 });
 
-
-//Här är funktionen som kontrollerar om gubben hängs eller ej
-function addBodyParts (guessLetter, finalWord){
     //Denna funktion randomiserar orden i wordArr som används som ordbank att
     //gissa på. en funktion i en funktion.
     function generateWord() {
     let wordArr = ['summer', 'winter', 'spring', 'fall'];
     const randomPosition = Math.floor(Math.random() * wordArr.length);
-    finalWord = wordArr[randomPosition]; 
+    finalWord = wordArr[randomPosition].split(''); 
+
     return finalWord;
-}
+
+    }
+    generateWord()  
+
+   console.log(finalWord);
+     for (let letter of finalWord) {
+      let newElement = document.createElement('li');
+      newElement.innerHTML = letter;
+      showRightLetterElement.append(newElement);
+     }
+
+
+
   //Här startar ovanstående funktion
-  generateWord()
+
+
+
+
+
+
+//Här är funktionen som kontrollerar om gubben hängs eller ej
+function addBodyParts (guessLetter, finalWord){
 
   //Denna IF-sats kollar om bokstav som gissas på inkluderas i 
   //det randomiserade ordet. 
@@ -90,25 +107,25 @@ function addBodyParts (guessLetter, finalWord){
     //Om Bokstaven som gissats finns i order, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
       console.log("Du hade rätt: " + guessLetter)
-      displayWord()
+      //displayWord()
     }
 
   else {
       console.log('du tryckte fel tangent.')
     }
 
-    function displayWord (){
-      showRightLetterElement.innerHTML = `${finalWord.split('').map(guessLetter => `
-      <span class="letter"> 
-          ${correctLetters.includes(guessLetter) ? letter : ''} 
-      </span>
-      `).join('')} `;
-      const innerWord = showRightLetterElement.innerText.replace(/\n/g, '');
-      console.log(innerWord);
-      if (innerWord === finalWord) {
-        console.log('You won!');
-      }
-    }
+    // function displayWord (){
+    //   showRightLetterElement.innerHTML = `${finalWord.split('').map(guessLetter => `
+    //   <span class="letter"> 
+    //       ${correctLetters.includes(guessLetter) ? letter : ''} 
+    //   </span>
+    //   `).join('')} `;
+    //   const innerWord = showRightLetterElement.innerText.replace(/\n/g, '');
+    //   console.log(innerWord);
+    //   if (innerWord === finalWord) {
+    //     console.log('You won!');
+    //   }
+    // }
 
 
 
