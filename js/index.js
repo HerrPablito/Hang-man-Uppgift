@@ -114,7 +114,7 @@ function addBodyParts (guessLetter, finalWord){
     //Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
       console.log("Du hade rätt: " + guessLetter)      
-      newElement.style.visibility = 'visible';
+      finalWord.style.visibility = 'visible';
       }
     else {
       console.log('du tryckte fel tangent.')
