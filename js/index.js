@@ -8,14 +8,17 @@ let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
 
 //Tar emot data
-document.addEventListener ('keyup', (event)=> {
+function addLetter(){
+ document.addEventListener ('keyup', (event)=> {
   console.log(event.key.toUpperCase());
 if(event.key === 'Enter') {
-  //Funktion som gör jobbet, eller referera till en  
-  
+ 
+  addBodyParts(guessLetter, finalWord);
    guessLetter = event.key;
 }
-});
+}); 
+}
+
 
     //Denna funktion randomiserar orden i wordArr som används som ordbank att
     //gissa på. en funktion i en funktion.
@@ -39,15 +42,15 @@ if(event.key === 'Enter') {
      }
   }
 
-  // function showCorrectLetters() {
-  //   let filter = guessLetter.toUpperCase().trim();
-  //   showRightLetterElement.style.display = filter ? "block" : "none";
+  function showCorrectLetters() {
+    let filter = guessLetter.toUpperCase().trim();
+    showRightLetterElement.style.display = filter ? "block" : "none";
 
-  //   for (const a of document.querySelectorAll('.correctLetter li')) {
-  //     a.style.display =
-  //     a.textContent.toUpperCase().includes(filter) ? "block" : ""; 
-  //   }
-  // }
+    for (const a of document.querySelectorAll('.correctLetter li')) {
+      a.style.display =
+      a.textContent.toUpperCase().includes(filter) ? "block" : "none"; 
+    }
+  }
 
 
 
@@ -125,10 +128,13 @@ function addBodyParts (guessLetter, finalWord){
     }
   }
 //Här startar vi funktionen
-generateWord() 
+generateWord()
 getWordIntoLetterInUl()
+addLetter()
+ 
+
 showCorrectLetters()
-addBodyParts(guessLetter, finalWord);
+
 
 
 
