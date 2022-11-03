@@ -39,15 +39,15 @@ if(event.key === 'Enter') {
      }
   }
 
-  function showCorrectLetters() {
-    let filter = guessLetter.toUpperCase().trim();
-    showRightLetterElement.style.display = filter ? "block" : "none";
+  // function showCorrectLetters() {
+  //   let filter = guessLetter.toUpperCase().trim();
+  //   showRightLetterElement.style.display = filter ? "block" : "none";
 
-    for (const a of document.querySelectorAll('.correctLetter li')) {
-      a.style.display =
-      a.textContent.toUpperCase().includes(filter) ? "block" : ""; 
-    }
-  }
+  //   for (const a of document.querySelectorAll('.correctLetter li')) {
+  //     a.style.display =
+  //     a.textContent.toUpperCase().includes(filter) ? "block" : ""; 
+  //   }
+  // }
 
 
 

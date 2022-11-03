@@ -170,7 +170,9 @@ body {
 .correctLetter li {
     display: inline;
     font-size: 5rem;
-    
+    background-color: grey;
+    border: 2px solid black;
+    width: 1rem;
 }
 
 .wrongNumberOne, .wrongNumberTwo, .wrongNumberThree, .wrongNumberFour, .wrongNumberFive{
