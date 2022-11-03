@@ -2,20 +2,19 @@
 //Här Deklarerar vi variablerna utanför funtionerna så de blir globala. 
 //let guessLetter 
 let finalWord = '';
-let numberOfWrongGuesses = -1;
+let numberOfWrongGuesses = 0;
 let pickedWord = ''
 let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
 
 //Tar emot data
 function addLetter(){
-  document.addEventListener ('keyup', (event)=> {
-  console.log(event.key.toUpperCase());
-     if(event.key) {
-      
+      document.addEventListener ('keyup', (event)=> {
+      console.log(event.key.toUpperCase());
+       if(event.key) {
+        //starta if-satserna
      addBodyParts(guessLetter, finalWord);
-     guessLetter = event.key;
-
+     guessLetter = event.key
     }
   }); 
 }
@@ -52,38 +51,32 @@ function addLetter(){
         a.style.display =
         a.textContent.toUpperCase().includes(filter) ? "block" : "none"; 
       }
+      
   }
-
-
-
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
 function addBodyParts (guessLetter, letter){
-
   //Denna IF-sats kollar om bokstav som gissas på inkluderas i 
-  //det randomiserade ordet. 
-  
-    //Om det inte finns i ordet, så går vi vidare i denna if-sats.
+  //det randomiserade ordet. Om det inte finns i ordet, så går vi vidare i denna if-sats.
     if (letter.includes(guessLetter) == false){
       function addNumbertoWrongGuess (){
       numberOfWrongGuesses++
       }
-
         addNumbertoWrongGuess()
         console.log(numberOfWrongGuesses);
         //i IF-satsen ligger denna IF-sats. Det vill säga:
         //beroende på hur många gånger som gissats fel går vi ner i IF-satsen.
         if (numberOfWrongGuesses == 1){
           document.querySelector('figure').classList.add('scaffold');
+          let showWrongLetterElement = document.querySelector('.wrongNumberOne');
+          showWrongLetterElement.innerHTML = guessLetter;     
           console.log('Du hade fel!');   
-          let showWrongLetterElement = document.querySelector('.wrongNumberOne')
-          showWrongLetterElement.innerHTML = guessLetter;
       }
         else if (numberOfWrongGuesses == 2){
           document.querySelector('figure').classList.add('scaffold');
           document.querySelector('figure').classList.add('head');
           console.log('Du hade fel!');
-          showWrongLetterElement = document.querySelector('.wrongNumberTwo')
+          let showWrongLetterElement = document.querySelector('.wrongNumberTwo')
           showWrongLetterElement.innerHTML = guessLetter;
         }
 
@@ -92,7 +85,7 @@ function addBodyParts (guessLetter, letter){
           document.querySelector('figure').classList.add('head');
           document.querySelector('figure').classList.add('body');
           console.log('Du hade fel!');
-          showWrongLetterElement = document.querySelector('.wrongNumberThree')
+          let showWrongLetterElement = document.querySelector('.wrongNumberThree')
           showWrongLetterElement.innerHTML = guessLetter;
         }
 
@@ -102,7 +95,7 @@ function addBodyParts (guessLetter, letter){
           document.querySelector('figure').classList.add('body');
           document.querySelector('figure').classList.add('arms');
           console.log('Du hade fel!');
-          showWrongLetterElement = document.querySelector('.wrongNumberFour')
+          let showWrongLetterElement = document.querySelector('.wrongNumberFour')
           showWrongLetterElement.innerHTML = guessLetter;
         }
 
@@ -118,19 +111,18 @@ function addBodyParts (guessLetter, letter){
           console.log("spela igen?");
           console.log('press any key to restart');
           // Här ska vi använda onkey-event för att starta om typ. 
-        }
+       
+      }
       }
     //Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
     else if (letter.includes(guessLetter) == true){
       
-
-
       console.log("Du hade rätt: " + guessLetter)
-     
-
+    
+     showCorrectLetters()
     }
 
-  else {
+    else {
       console.log('du tryckte fel tangent.')
     }
   }
@@ -138,7 +130,7 @@ function addBodyParts (guessLetter, letter){
 generateWord()
 getWordIntoLetterInUl()
 addLetter()
-showCorrectLetters()
+
 
 
 
