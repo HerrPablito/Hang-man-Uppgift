@@ -3,21 +3,23 @@
 //let guessLetter 
 let finalWord = '';
 let numberOfWrongGuesses = 0;
+
 let pickedWord = ''
 let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
 
 //Tar emot data
-function addLetter(){
+
       document.addEventListener ('keyup', (event)=> {
       console.log(event.key.toUpperCase());
        if(event.key) {
         //starta if-satserna
-     addBodyParts(guessLetter, finalWord);
-     guessLetter = event.key
+         guessLetter = event.key.toUpperCase()    
+         addBodyParts(guessLetter, finalWord);
+
     }
   }); 
-}
+
 
 
     //Denna funktion randomiserar orden i wordArr som används som ordbank att
@@ -39,30 +41,33 @@ function addLetter(){
         let newElement = document.createElement('li');
         newElement.innerHTML = letter;
         showRightLetterElement.append(newElement);
-        console.log(letter);
+        //console.log(letter);
      }
   }
 
-  function showCorrectLetters() {
+  function showCorrectLetters(finalWord, ) {
       let filter = guessLetter.toUpperCase().trim();
-        showRightLetterElement.style.display = filter ? "block" : "none";
+        //showRightLetterElement.style.display == filter ? "block" : "none";
 
       for (const a of document.querySelectorAll('.correctLetter li')) {
         a.style.display =
-        a.textContent.toUpperCase().includes(filter) ? "block" : "none"; 
+        a.finalWord.toUpperCase().includes(filter) ? "block" : "none"; 
+        console.log(finalWord);
+        console.log(filter);
       }
       
   }
+  
+  showCorrectLetters()
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
-function addBodyParts (guessLetter, letter){
+function addBodyParts (guessLetter, finalWord){
+  console.log(guessLetter);
   //Denna IF-sats kollar om bokstav som gissas på inkluderas i 
   //det randomiserade ordet. Om det inte finns i ordet, så går vi vidare i denna if-sats.
-    if (letter.includes(guessLetter) == false){
-      function addNumbertoWrongGuess (){
-      numberOfWrongGuesses++
-      }
-        addNumbertoWrongGuess()
+    if (finalWord.includes(guessLetter) == false){
+
+        numberOfWrongGuesses++
         console.log(numberOfWrongGuesses);
         //i IF-satsen ligger denna IF-sats. Det vill säga:
         //beroende på hur många gånger som gissats fel går vi ner i IF-satsen.
@@ -70,7 +75,7 @@ function addBodyParts (guessLetter, letter){
           document.querySelector('figure').classList.add('scaffold');
           let showWrongLetterElement = document.querySelector('.wrongNumberOne');
           showWrongLetterElement.innerHTML = guessLetter;     
-          console.log('Du hade fel!');   
+          console.log('Du hade fel! ' + numberOfWrongGuesses);   
       }
         else if (numberOfWrongGuesses == 2){
           document.querySelector('figure').classList.add('scaffold');
@@ -115,11 +120,10 @@ function addBodyParts (guessLetter, letter){
       }
       }
     //Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
-    else if (letter.includes(guessLetter) == true){
+    else if (finalWord.includes(guessLetter) == true){
       
       console.log("Du hade rätt: " + guessLetter)
-    
-     showCorrectLetters()
+  
     }
 
     else {
@@ -129,7 +133,7 @@ function addBodyParts (guessLetter, letter){
 //Här startar vi funktionen
 generateWord()
 getWordIntoLetterInUl()
-addLetter()
+
 
 
 
