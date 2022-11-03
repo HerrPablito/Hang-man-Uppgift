@@ -169,6 +169,8 @@ body {
 }
 .correctLetter li {
     display: inline;
+    font-size: 5rem;
+    
 }
 
 .wrongNumberOne, .wrongNumberTwo, .wrongNumberThree, .wrongNumberFour, .wrongNumberFive{

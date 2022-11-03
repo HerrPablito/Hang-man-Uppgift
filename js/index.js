@@ -1,20 +1,19 @@
 
 //Här Deklarerar vi variablerna utanför funtionerna så de blir globala. 
 //let guessLetter 
-let finalWord = 'Pablo';
+let finalWord = '';
 let numberOfWrongGuesses = 3;
-let pickedWord = 'hej'
-let wrongLetters = [];
-let correctLetters = [];
+let pickedWord = ''
 let showRightLetterElement = document.querySelector('.correctLetter');
+let guessLetter = '';
 
-
-//Tar emot data (Tildes work!)
-let guessLetter = document.querySelector('.insertLetter');
-guessLetter.addEventListener ('keyup', (event)=> {
+//Tar emot data
+document.addEventListener ('keyup', (event)=> {
+  console.log(event.key.toUpperCase());
 if(event.key === 'Enter') {
   //Funktion som gör jobbet, eller referera till en  
-  (inputHTML.value)
+  
+   guessLetter = event.key;
 }
 });
 
@@ -23,25 +22,32 @@ if(event.key === 'Enter') {
     function generateWord() {
     let wordArr = ['summer', 'winter', 'spring', 'fall'];
     const randomPosition = Math.floor(Math.random() * wordArr.length);
-    finalWord = wordArr[randomPosition].split(''); 
-
+    finalWord = wordArr[randomPosition].toUpperCase().split(''); 
     return finalWord;
 
     }
-    generateWord()  
+    //Här sätter vi igång ovanstående funktion
+  
 
+    //Här lägger vi in bokstäverna i en UL och skapar en funktion
+    function getWordIntoLetterInUl(){
    console.log(finalWord);
      for (let letter of finalWord) {
       let newElement = document.createElement('li');
       newElement.innerHTML = letter;
       showRightLetterElement.append(newElement);
      }
+  }
 
+  function showCorrectLetters() {
+    let filter = guessLetter.toUpperCase().trim();
+    showRightLetterElement.style.display = filter ? "block" : "none";
 
-
-  //Här startar ovanstående funktion
-
-
+    for (const a of document.querySelectorAll('.correctLetter li')) {
+      a.style.display =
+      a.textContent.toUpperCase().includes(filter) ? "block" : ""; 
+    }
+  }
 
 
 
@@ -106,31 +112,22 @@ function addBodyParts (guessLetter, finalWord){
       }
     //Om Bokstaven som gissats finns i order, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
+      
+
+
       console.log("Du hade rätt: " + guessLetter)
-      //displayWord()
+     
+
     }
 
   else {
       console.log('du tryckte fel tangent.')
     }
-
-    // function displayWord (){
-    //   showRightLetterElement.innerHTML = `${finalWord.split('').map(guessLetter => `
-    //   <span class="letter"> 
-    //       ${correctLetters.includes(guessLetter) ? letter : ''} 
-    //   </span>
-    //   `).join('')} `;
-    //   const innerWord = showRightLetterElement.innerText.replace(/\n/g, '');
-    //   console.log(innerWord);
-    //   if (innerWord === finalWord) {
-    //     console.log('You won!');
-    //   }
-    // }
-
-
-
   }
 //Här startar vi funktionen
+generateWord() 
+getWordIntoLetterInUl()
+showCorrectLetters()
 addBodyParts(guessLetter, finalWord);
 
 
