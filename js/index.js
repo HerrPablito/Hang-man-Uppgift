@@ -2,7 +2,7 @@
 //Här Deklarerar vi variablerna utanför funtionerna så de blir globala. 
 //let guessLetter 
 let finalWord = '';
-let numberOfWrongGuesses = 3;
+let numberOfWrongGuesses = 0;
 let pickedWord = ''
 let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
@@ -13,7 +13,7 @@ function addLetter(){
   console.log(event.key.toUpperCase());
      if(event.key) {
       
-     addBodyParts(guessLetter, finalWord);
+     addBodyParts(guessLetter, finalWord , numberOfWrongGuesses);
      guessLetter = event.key;
 
     }
@@ -57,7 +57,7 @@ function addLetter(){
 
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
-function addBodyParts (guessLetter, finalWord){
+function addBodyParts (guessLetter, finalWord, numberOfWrongGuesses){
 
   //Denna IF-sats kollar om bokstav som gissas på inkluderas i 
   //det randomiserade ordet. 
