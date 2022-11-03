@@ -161,16 +161,15 @@ body {
     flex-direction:row;
     
 }
-.rightLetter{
-    height: 50%;
+.correctLetter{
+    list-style: none;
+    height: 3rem;
     width: 100%;
-    font-size: 3rem;
-    margin: 0;
-    text-align: center;
-    border: 5px solid rgb(195, 82, 82) ;
-    margin: .5rem .5rem .5rem .5rem;
-}
 
+}
+.correctLetter li {
+    display: inline;
+}
 
 .wrongNumberOne, .wrongNumberTwo, .wrongNumberThree, .wrongNumberFour, .wrongNumberFive{
     width: 20%;
