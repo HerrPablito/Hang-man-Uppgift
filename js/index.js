@@ -9,24 +9,25 @@ let guessLetter = '';
 
 //Tar emot data
 function addLetter(){
- document.addEventListener ('keyup', (event)=> {
+  document.addEventListener ('keyup', (event)=> {
   console.log(event.key.toUpperCase());
-if(event.key === 'Enter') {
- 
-  addBodyParts(guessLetter, finalWord);
-   guessLetter = event.key;
-}
-}); 
+     if(event.key) {
+      
+     addBodyParts(guessLetter, finalWord);
+     guessLetter = event.key;
+
+    }
+  }); 
 }
 
 
     //Denna funktion randomiserar orden i wordArr som används som ordbank att
     //gissa på. en funktion i en funktion.
     function generateWord() {
-    let wordArr = ['summer', 'winter', 'spring', 'fall'];
-    const randomPosition = Math.floor(Math.random() * wordArr.length);
-    finalWord = wordArr[randomPosition].toUpperCase().split(''); 
-    return finalWord;
+        let wordArr = ['summer', 'winter', 'spring', 'fall'];
+        const randomPosition = Math.floor(Math.random() * wordArr.length);
+        finalWord = wordArr[randomPosition].toUpperCase().split(''); 
+        return finalWord;
 
     }
     //Här sätter vi igång ovanstående funktion
@@ -34,22 +35,22 @@ if(event.key === 'Enter') {
 
     //Här lägger vi in bokstäverna i en UL och skapar en funktion
     function getWordIntoLetterInUl(){
-   console.log(finalWord);
-     for (let letter of finalWord) {
-      let newElement = document.createElement('li');
-      newElement.innerHTML = letter;
-      showRightLetterElement.append(newElement);
+        console.log(finalWord);
+        for (let letter of finalWord) {
+        let newElement = document.createElement('li');
+        newElement.innerHTML = letter;
+        showRightLetterElement.append(newElement);
      }
   }
 
   function showCorrectLetters() {
-    let filter = guessLetter.toUpperCase().trim();
-    showRightLetterElement.style.display = filter ? "block" : "none";
+      let filter = guessLetter.toUpperCase().trim();
+        showRightLetterElement.style.display = filter ? "block" : "none";
 
-    for (const a of document.querySelectorAll('.correctLetter li')) {
-      a.style.display =
-      a.textContent.toUpperCase().includes(filter) ? "block" : "none"; 
-    }
+      for (const a of document.querySelectorAll('.correctLetter li')) {
+        a.style.display =
+        a.textContent.toUpperCase().includes(filter) ? "block" : "none"; 
+      }
   }
 
 
@@ -60,10 +61,11 @@ function addBodyParts (guessLetter, finalWord){
 
   //Denna IF-sats kollar om bokstav som gissas på inkluderas i 
   //det randomiserade ordet. 
-  console.log(guessLetter);
+  
     //Om det inte finns i ordet, så går vi vidare i denna if-sats.
     if (finalWord.includes(guessLetter) == false){
-      numberOfWrongGuesses = numberOfWrongGuesses++
+        numberOfWrongGuesses = numberOfWrongGuesses++;
+        console.log(numberOfWrongGuesses);
         //i IF-satsen ligger denna IF-sats. Det vill säga:
         //beroende på hur många gånger som gissats fel går vi ner i IF-satsen.
         if (numberOfWrongGuesses == 1){
@@ -131,8 +133,6 @@ function addBodyParts (guessLetter, finalWord){
 generateWord()
 getWordIntoLetterInUl()
 addLetter()
- 
-
 showCorrectLetters()
 
 
