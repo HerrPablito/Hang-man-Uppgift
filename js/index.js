@@ -14,7 +14,6 @@ let newElement;
 
 //Tar emot data
       document.addEventListener ('keyup', (event)=> {
-      console.log(event.key.toUpperCase());
        if(event.key) {
         //starta if-sats
          guessLetter = event.key.toUpperCase()    
@@ -100,9 +99,14 @@ function addBodyParts (guessLetter, finalWord){
           document.querySelector('figure').classList.add('legs');
           let showWrongLetterElement = document.querySelector('.wrongNumberFive')
           showWrongLetterElement.innerHTML = guessLetter;
-          console.log("du förlorade");
-          console.log("spela igen?");
-          console.log('press any key to restart');
+          let gameOver = confirm('Du dog! Vill du spela igen?')
+          if (gameOver){
+            window.location.reload()
+          }
+          else{
+            alert('Skit i det då tråkmåns!')
+          }
+
           // Här ska vi använda onkey-event för att starta om typ. 
        
       }
@@ -111,7 +115,6 @@ function addBodyParts (guessLetter, finalWord){
     else if (finalWord.includes(guessLetter) == true){
       console.log("Du hade rätt: " + guessLetter)      
       newElement.style.visibility = 'visible';
-
       }
     else {
       console.log('du tryckte fel tangent.')
