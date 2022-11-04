@@ -163,13 +163,14 @@ body {
 }
 .correctLetter{
     list-style: none;
-    height: 3rem;
+    height: 5rem;
     width: 100%;
 
 }
-.correctLetter ul li {
+.correctLetter li {
     display: inline;
     font-size: 5rem;
+    color: grey;
     background-color: grey;
     border: 2px solid black;
     width: 1rem;

@@ -7,7 +7,8 @@ let numberOfWrongGuesses = 0;
 let pickedWord = ''
 let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
-let newElement;
+// let newElement = '';
+
 
 
       
@@ -17,7 +18,7 @@ let newElement;
        if(event.key) {
         //starta if-sats
          guessLetter = event.key.toUpperCase()    
-         addBodyParts(guessLetter, finalWord);
+         addBodyParts(guessLetter, finalWord,);
     }
   }); 
 
@@ -29,26 +30,30 @@ let newElement;
         let wordArr = ['summer', 'winter', 'spring', 'fall'];
         const randomPosition = Math.floor(Math.random() * wordArr.length);
         finalWord = wordArr[randomPosition].toUpperCase().split(''); 
+        
         return finalWord;
     }
   
 
-    //Här lägger vi in bokstäverna i en UL och skapar en funktion
+    // Här lägger vi in bokstäverna i en UL och skapar en funktion
     function getWordIntoLetterInUl(){
         console.log(finalWord);
         for (let letter of finalWord) {
         newElement = document.createElement('li');
         newElement.innerHTML = letter;
         showRightLetterElement.append(newElement);
+        newElement.style.visibility = 'visible';
         console.log(letter);
-        newElement.style.visibility = 'hidden';
+
      }
   }
+
+  
 
 
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
-function addBodyParts (guessLetter, finalWord){
+function addBodyParts (guessLetter, finalWord,){
   console.log(guessLetter);
   //Denna IF-sats kollar om bokstav som gissas på inkluderas i 
   //det randomiserade ordet. Om det inte finns i ordet, så går vi vidare i denna if-sats.
@@ -111,15 +116,22 @@ function addBodyParts (guessLetter, finalWord){
        
       }
       }
-    //Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
+    // Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
-      console.log("Du hade rätt: " + guessLetter)      
-      finalWord.style.visibility = 'visible';
+      let foundLetter = finalWord.find(element => element == guessLetter);
+      console.log(foundLetter);
+      let foundLetterIndex = finalWord.findIndex(element => element == guessLetter);
+      console.log(foundLetterIndex);
+      // console.log("Du hade rätt: " + guessLetter)
+      newElement.innerHTML = foundLetter;      
+      newElement.style.color = 'red';
       }
     else {
       console.log('du tryckte fel tangent.')
     }
   }
+
+
 //Här startar vi funktionen
 generateWord()
 getWordIntoLetterInUl()
