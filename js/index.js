@@ -126,7 +126,7 @@ function addBodyParts (guessLetter, finalWord,){
       showRightLetterElement.innerHTML = '';
       test(pickedWord)
       })
-        if (numberOfRightGuesses == pickedWord.length+1){
+        if (numberOfRightGuesses == pickedWord.length){
           let winner = confirm('Du vann! Vill du spela igen?')
             if (winner){
               window.location.reload()
