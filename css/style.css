@@ -170,7 +170,7 @@ body {
 .correctLetter li {
     display: inline;
     font-size: 5rem;
-    color: grey;
+    color: rgb(214, 31, 31);
     background-color: grey;
     border: 2px solid black;
     width: 1rem;

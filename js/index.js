@@ -4,7 +4,7 @@
 let finalWord = '';
 let numberOfWrongGuesses = 0;
 let numberOfRightGuesses = 0;
-let pickedWord = ''
+let pickedWord = [];
 let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
 // let newElement = '';
@@ -19,6 +19,11 @@ let guessLetter = '';
     }
   }); 
 
+  function test(pickedWord) {
+    pickedWord.forEach(char => {
+    showRightLetterElement.innerHTML += `<li>${char}</li>`;
+  });
+}
 
 
     //Denna funktion randomiserar orden i wordArr som används som ordbank att
@@ -27,7 +32,7 @@ let guessLetter = '';
         let wordArr = ['summer', 'winter', 'spring', 'fall'];
         const randomPosition = Math.floor(Math.random() * wordArr.length);
         finalWord = wordArr[randomPosition].toUpperCase().split(''); 
-        
+                                                                                                   
         return finalWord;
     }
   
@@ -35,17 +40,28 @@ let guessLetter = '';
     // Här lägger vi in bokstäverna i en UL och skapar en funktion
     function getWordIntoLetterInUl(){
         console.log(finalWord);
-        for (let letter of finalWord) {
-        newElement = document.createElement('li');
-        newElement.innerHTML = letter;
-        showRightLetterElement.append(newElement);
-        newElement.style.visibility = 'visible';
-        console.log(letter);
+        pickedWord =  Array.from('_'.repeat(finalWord.length));
+        finalWord.forEach(char => {                   
+          // console.log(pickedWord);                
+          showRightLetterElement.innerHTML = pickedWord
+          // .innerHTML += `<li>${char}</li>`
+        })
+       
 
-     }
-  }
+        }
+        // for (let letter of finalWord) {
+        // newElement = document.createElement('li');
+        // newElement.innerHTML = letter;
+        // showRightLetterElement.append(newElement);
+        // newElement.style.visibility = 'visible';
+        // console.log(letter);
 
-  
+  //    }
+  // }
+
+//   currentWordCharacters.forEach(char => {
+//     currentWordEl.innerHTML += `<li>${char}</li>`;
+// });
 
 
 
@@ -116,19 +132,25 @@ function addBodyParts (guessLetter, finalWord,){
     // Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
       numberOfRightGuesses++
-      let foundLetter = finalWord.find(element => element == guessLetter);
-      console.log(foundLetter);
-      let foundLetterIndex = finalWord.findIndex(element => element == guessLetter);
-      console.log(foundLetterIndex);
+      // let foundLetter = finalWord.find(element => element == guessLetter);
+      // console.log(foundLetter);
+      // let foundLetterIndex = finalWord.findIndex(element => element == guessLetter);
+      // console.log(foundLetterIndex);
       // console.log("Du hade rätt: " + guessLetter)
-      newElement.innerHTML = foundLetter;      
-      newElement.style.color = 'red';
-      console.log(newElement);
+      // newElement.innerHTML = foundLetter;      
+      // newElement.style.color = 'red';
+      // console.log(newElement);
+      pickedWord.forEach((char, i) => {
+        if (finalWord[i] === guessLetter) {
+            pickedWord[i] = guessLetter;
+      }
+      showRightLetterElement.innerHTML = '';
+      test(pickedWord)
+      })
 
-     
       }
     else {
-      console.log('du tryckte fel tangent.')
+      console.log('du tryckte fel tangent.') 
     }
   }
 
