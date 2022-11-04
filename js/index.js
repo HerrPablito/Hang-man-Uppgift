@@ -49,20 +49,6 @@ let guessLetter = '';
        
 
         }
-        // for (let letter of finalWord) {
-        // newElement = document.createElement('li');
-        // newElement.innerHTML = letter;
-        // showRightLetterElement.append(newElement);
-        // newElement.style.visibility = 'visible';
-        // console.log(letter);
-
-  //    }
-  // }
-
-//   currentWordCharacters.forEach(char => {
-//     currentWordEl.innerHTML += `<li>${char}</li>`;
-// });
-
 
 
 //Här är funktionen som kontrollerar om gubben hängs eller ej
@@ -132,14 +118,7 @@ function addBodyParts (guessLetter, finalWord,){
     // Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
       numberOfRightGuesses++
-      // let foundLetter = finalWord.find(element => element == guessLetter);
-      // console.log(foundLetter);
-      // let foundLetterIndex = finalWord.findIndex(element => element == guessLetter);
-      // console.log(foundLetterIndex);
-      // console.log("Du hade rätt: " + guessLetter)
-      // newElement.innerHTML = foundLetter;      
-      // newElement.style.color = 'red';
-      // console.log(newElement);
+
       pickedWord.forEach((char, i) => {
         if (finalWord[i] === guessLetter) {
             pickedWord[i] = guessLetter;
@@ -147,6 +126,12 @@ function addBodyParts (guessLetter, finalWord,){
       showRightLetterElement.innerHTML = '';
       test(pickedWord)
       })
+        if (numberOfRightGuesses == pickedWord.length+1){
+          let winner = confirm('Du vann! Vill du spela igen?')
+            if (winner){
+              window.location.reload()
+            }
+        }
 
       }
     else {
