@@ -7,7 +7,7 @@ let numberOfWrongGuesses = 0;
 let pickedWord = ''
 let showRightLetterElement = document.querySelector('.correctLetter');
 let guessLetter = '';
-let newElement;
+let newElement = '';
 
 
       
@@ -42,6 +42,7 @@ let newElement;
         showRightLetterElement.append(newElement);
         console.log(letter);
         newElement.style.visibility = 'hidden';
+
      }
   }
 
@@ -113,8 +114,9 @@ function addBodyParts (guessLetter, finalWord){
       }
     //Om Bokstaven som gissats finns i ordet, så går vi vidare till denna IF-sats-  
     else if (finalWord.includes(guessLetter) == true){
-      console.log("Du hade rätt: " + guessLetter)      
-      finalWord.style.visibility = 'visible';
+      console.log("Du hade rätt: " + guessLetter)    
+      console.log(newElement);  
+      newElement.style.visibility = 'visible';
       }
     else {
       console.log('du tryckte fel tangent.')

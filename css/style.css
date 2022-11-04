@@ -167,7 +167,7 @@ body {
     width: 100%;
 
 }
-.correctLetter ul li {
+.correctLetter li {
     display: inline;
     font-size: 5rem;
     background-color: grey;
