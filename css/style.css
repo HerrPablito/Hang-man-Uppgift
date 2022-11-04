@@ -148,7 +148,7 @@ body {
 }
 
 .showLetters{
-    width: 70vw;
+    width: auto;
     height: 250px;
     display: flex;
     flex-direction: column;
@@ -161,19 +161,25 @@ body {
     flex-direction:row;
     
 }
-.correctLetter{
+.correctLetter  {
+    display: flex;
+    justify-content: space-evenly;
     list-style: none;
-    height: 5rem;
-    width: 100%;
-
+    height: 6rem;
+    font-size: 5rem;
+    color: red;
+    background-color: grey;
+    border: 2px solid black;
+    padding-inline-start: 0px;
+    
 }
 .correctLetter li {
-    display: inline;
+    display: flex;
+    justify-content: space-between;
     font-size: 5rem;
     color: rgb(214, 31, 31);
     background-color: grey;
-    border: 2px solid black;
-    width: 1rem;
+    
 }
 
 .wrongNumberOne, .wrongNumberTwo, .wrongNumberThree, .wrongNumberFour, .wrongNumberFive{
